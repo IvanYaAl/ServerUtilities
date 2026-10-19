@@ -1,0 +1,195 @@
+# Награда за убийство моба. Для мобов, отсутствующих в списке, награда равна 0.
+mob-rewards:
+  ZOMBIE: 2
+  SKELETON: 2
+  CREEPER: 3
+  SPIDER: 1
+  CAVE_SPIDER: 2
+  ENDERMAN: 5
+  WITCH: 4
+  SLIME: 1
+  PHANTOM: 3
+  DROWNED: 2
+  HUSK: 2
+  STRAY: 2
+  PILLAGER: 3
+  VINDICATOR: 4
+  BLAZE: 4
+  GHAST: 8
+  MAGMA_CUBE: 2
+  HOGLIN: 4
+  PIGLIN_BRUTE: 5
+  WITHER_SKELETON: 5
+  GUARDIAN: 4
+  ELDER_GUARDIAN: 25
+  SHULKER: 6
+  ENDER_DRAGON: 100
+  WITHER: 75
+
+buyer:
+  # Цена за 1 предмет до изменения курса. Предметы вне списка скупщик принимает по автоматической оценке (см. autoBasePrice).
+  base-prices:
+    ROTTEN_FLESH: 1
+    BONE: 1
+    ARROW: 1
+    STRING: 1
+    SPIDER_EYE: 2
+    GUNPOWDER: 2
+    ENDER_PEARL: 4
+    SLIME_BALL: 3
+    BLAZE_ROD: 5
+    GHAST_TEAR: 8
+    COAL: 1
+    CHARCOAL: 1
+    RAW_IRON: 2
+    IRON_INGOT: 3
+    RAW_COPPER: 1
+    COPPER_INGOT: 1
+    RAW_GOLD: 3
+    GOLD_INGOT: 4
+    DIAMOND: 15
+    EMERALD: 10
+    LAPIS_LAZULI: 2
+    REDSTONE: 1
+    QUARTZ: 2
+    AMETHYST_SHARD: 1
+    WHEAT: 1
+    CARROT: 1
+    POTATO: 1
+    BEETROOT: 1
+    PUMPKIN: 2
+    MELON_SLICE: 1
+    SUGAR_CANE: 1
+    LEATHER: 2
+    FEATHER: 1
+    EGG: 1
+    COD: 1
+    SALMON: 2
+    BEEF: 2
+    PORKCHOP: 2
+    MUTTON: 2
+    CHICKEN: 1
+  # Объём для падения курса до минимального значения.
+  saturation-units: 100.0
+  # Минимальная доля базовой цены при высоком предложении (0.2 = 20%).
+  minimum-multiplier: 0.2
+  # Период полураспада давления предложения: за эти часы оно уменьшается вдвое.
+  half-life-hours: 6.0
+
+shop:
+  # Цены продажи серверного магазина (/shop) за 1 штуку.
+  sell-prices:
+    DIAMOND: 25
+    EMERALD: 20
+    IRON_INGOT: 8
+    GOLD_INGOT: 12
+    NETHERITE_INGOT: 300
+    ELYTRA: 1500
+    SHULKER_SHELL: 120
+    TOTEM_OF_UNDYING: 250
+    ENCHANTED_GOLDEN_APPLE: 400
+    ENDER_PEARL: 10
+    BLAZE_ROD: 12
+    REDSTONE: 3
+    LAPIS_LAZULI: 5
+    COAL: 3
+    AMETHYST_SHARD: 4
+    HONEY_BOTTLE: 6
+    NAME_TAG: 150
+    SADDLE: 40
+  # Объём покупок, при котором персональный курс падает до минимума.
+  saturation-units: 128.0
+  # Минимальная доля базовой цены после массовых покупок (0.5 = 50%).
+  minimum-multiplier: 0.5
+
+auction:
+  # Длительность аукциона в минутах.
+  duration-minutes: 30
+  # Комиссия сервера с выигрышной ставки продавца (в процентах, 0-50).
+  seller-fee-percent: 5
+
+# --- Автоскупщик (/autosell): игрок кладёт предмет в выделенный слот, он продаётся по одному ---
+autosell:
+  # Множитель давления рынка за каждую единицу автоскупки (влияет на падение цены сильнее).
+  pressure-multiplier: 0.5
+  # Пауза между продажей предметов, секунд.
+  item-change-every-seconds: 15
+  # Останавливать автоскупку, если игрок бездействует столько секунд.
+  idle-stop-seconds: 120
+
+# --- Скорборд с балансом ---
+scoreboard:
+  enabled: true
+  title: "&6&lСерверные утилиты"
+
+# --- Переводы валюты (/pay) ---
+pay:
+  # Комиссия сервера с перевода, процентов (0 = без комиссии).
+  fee-percent: 0
+
+# --- Авторизация (/reg, /login) ---
+auth:
+  enabled: true
+  # Замораживать игрока до входа в игру.
+  freeze-until-login: true
+  # Сколько секунд дано на регистрацию после входа на сервер.
+  register-grace-seconds: 60
+  # Сколько секунд дано на ввод пароля после /login-сессии.
+  login-timeout-seconds: 90
+  # Минимальная длина пароля.
+  min-password-length: 4
+  # Максимум неудачных попыток входа за сессию.
+  max-login-tries: 5
+
+# --- Обмен между игроками (/trade) ---
+trade:
+  # Максимальное расстояние между игроками для обмена, блоков.
+  max-distance-blocks: 10.0
+
+# --- Кланы (/clan) ---
+clan:
+  # Максимальное число участников клана базового (1-го) уровня.
+  max-members: 10
+  # Стоимость создания клана в монетах.
+  create-cost: 500
+  # Улучшение клана (/clan upgrade) — оплата из казны.
+  upgrade:
+    # Цена первого улучшения (уровень 1 -> 2).
+    base-cost: 300
+    # Во сколько раз дорожает каждое следующее улучшение.
+    cost-multiplier: 1.8
+    # Сколько дополнительных слотов участников даёт каждый уровень.
+    member-bonus: 5
+    # Максимальный уровень клана.
+    max-level: 10
+    # true — платить из казны клана, false — с личного баланса лидера.
+    pay-from-treasury: true
+  # Приват территории (/clan private). Лидер получает ядро-маяк, ставит его,
+  # ПКМ по ядру — карта чанков 9x5, где можно докупить соседние чанки.
+  private:
+    # Цена первого чанка.
+    base-cost: 5000
+    # На сколько дорожает каждый следующий чанк (5000, 10000, 15000, ...).
+    cost-step: 5000
+    # Максимум чанков у одного клана.
+    max-chunks: 16
+    # true — платить из казны клана, false — с личного баланса лидера.
+    pay-from-treasury: true
+    # Могут ли офицеры снимать чанки в меню (ядро ставит и ломает только лидер).
+    officers-can-manage: false
+    # Могут ли все участники клана докупать соседние чанки через меню ядра (оплата из казны).
+    # Строить, ломать, открывать сундуки и двери на территории участники могут всегда.
+    members-can-claim: true
+    # Защищать территорию от взрывов, огня, эндерменов и иссушителей.
+    protect-explosions: true
+    # Показывать над хотбаром, на чьей территории находится игрок.
+    border-messages: true
+    # Визуальные границы приватов из частиц (каждый игрок включает/выключает сам
+    # в меню ядра привата или командой /clan private borders).
+    borders:
+      # Показывать границы новым игрокам по умолчанию.
+      default-visible: true
+      # Как часто перерисовывать (в тиках, 20 = 1 секунда).
+      interval-ticks: 20
+      # На каком расстоянии от игрока видны границы (в блоках).
+      view-distance: 48

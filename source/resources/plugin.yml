@@ -1,0 +1,72 @@
+name: ServerUtilities
+version: 2.0.0
+main: ru.manus.tradeorders.TradeOrdersPlugin
+api-version: '1.21'
+author: Manus
+description: "All-in-one economy toolkit for Paper 1.21.8 - orders, currency, dynamic buyer, shop, auction, autosell, top, scoreboard, pay, trade, clans, auth."
+commands:
+  orders:
+    description: Open the player order board
+    usage: /orders
+    aliases: [orderboard]
+  order:
+    description: Create or cancel an order
+    usage: /order create <wanted amount> <offer amount> | /order create <wanted amount> money <coins> | /order cancel <id>
+  money:
+    description: Show your currency balance
+    usage: /money
+  buyer:
+    description: Open the resource buyer menu
+    usage: /buyer
+  shop:
+    description: Open the server shop
+    usage: /shop
+    aliases: [store]
+  auction:
+    description: Auction board; sell with /auction sell <min price> [buyout]; cancel with /auction cancel <id>
+    usage: /auction | /auction sell <min price> [buyout price] | /auction cancel <id>
+    aliases: [ah]
+  reg:
+    description: Register on the server
+    usage: /reg <password> <password>
+  register:
+    description: Register on the server
+    usage: /register <password> <password>
+  login:
+    description: Log in to your account
+    usage: /login <password>
+  auth:
+    description: Log in to your account
+    usage: /auth <password>
+  pay:
+    description: Transfer coins to another player
+    usage: /pay <player> <amount>
+  top:
+    description: Show the richest players leaderboard
+    usage: /top
+  autosell:
+    description: Toggle automatic seller for a held item
+    usage: /autosell
+  trade:
+    description: Safe player-to-player trade
+    usage: /trade <player> | /trade accept | /trade add <slot> | /trade ready | /trade cancel
+  clan:
+    description: Clans - create, invite, treasury, ranks
+    usage: /clan create <tag> <name> | invite <player> | join | leave | kick <player> | promote <player> | deposit <amount> | withdraw <amount> | upgrade | private [info|borders] | disband | list
+  storage:
+    description: Personal storage - items from orders and auction delivered while you were offline
+    usage: /storage
+    aliases: [stash, sklad]
+  ogui:
+    description: Open the main GUI menu with all plugin menus
+    usage: /ogui
+    aliases: [menu, gui]
+permissions:
+  serverutilities.admin:
+    description: Admin rights for orders, auctions and clans
+    default: op
+    children:
+      tradeorders.admin: true
+  tradeorders.admin:
+    description: Allows cancelling any player's order and auction lot
+    default: op
